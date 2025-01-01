@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Welcome</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <nav>
+        <a th:href="@{/homepage}" class="active">Home</a>
+        <a th:href="@{/aboutus}">About</a>
+        <a th:href="@{/contactus}">Contact</a>
+        <a th:href="@{/getallemployees}">Employee List</a>
+        <a th:href="@{/searchform}">Search Employee</a>
+    </nav>
+    <div class="welcome-container">
+        <h1 class="welcome-message">Welcome to My Employee Management System</h1>
+        <p class="welcome-description">
+            Welcome to the Employee Management System! This platform empowers you to manage employee data effortlessly and effectively. 
+			Designed with user-friendliness in mind, it provides a comprehensive suite of tools to streamline all aspects of employee management. 
+			Whether you're a manager or an HR professional, this system simplifies tasks like viewing, searching, and updating employee details. 
+			From maintaining accurate records to enhancing workforce productivity, our platform ensures seamless data handling. 
+			With a focus on efficiency and precision, it’s your ultimate solution for managing employee information in a modern workplace.</p>
+        <div class="product-info">
+            <p>Our platform allows you to:</p>
+            <ul>
+                <li><strong>Manage Employee Records:</strong> Add, update, or delete employee information.</li>
+                <li><strong>Search Employees:</strong> Find employees by name, department, or role.</li>
+                <li><strong>Track Employee Performance:</strong> Keep track of employee progress and evaluations.</li>
+                <li><strong>Department Management:</strong> Organize employees into departments for better structure.</li>
+                <li><strong>Analytics and Insights:</strong> View reports and metrics to analyze workforce data.</li>
+                <li><strong>Attendance Tracking:</strong> Monitor employee attendance and leave records seamlessly.</li>
+            </ul>
+            <p>Our mission is to streamline employee management, ensuring a smooth workflow and fostering organizational success. Experience the ease of modern employee data management with our system.</p>
+        </div>
+        <div class="btn-container">
+            <a th:href="@{/employeeform}" class="btn">Add Employee</a>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 My Employee Management System | All Rights Reserved | <a th:href="@{/contactus}">Contact Us</a></p>
+    </footer>
+</body>
+</html>

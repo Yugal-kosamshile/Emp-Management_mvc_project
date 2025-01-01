@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Employee Details</title>
+    <link rel="stylesheet" th:href="@{/css/styles2.css}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <a th:href="@{/homepage}" class="active">Home</a>
+        <a th:href="@{/aboutus}">About</a>
+        <a th:href="@{/contactus}">Contact</a>
+    </nav>
+
+    <!-- Employee Search Section -->
+    <section class="search-form">
+        <h2>Search Employee</h2>
+        <form th:action="@{/searchbyid}" method="post">
+            <label for="id">Enter Employee ID:</label>
+            <input type="text" id="id" name="id" required placeholder="Employee ID">
+            <button type="submit">Search</button>
+        </form>
+    </section>
+
+    <!-- Employee Details Section -->
+    <section th:if="${employee != null}" class="employee-details">
+        <h3>Employee Details</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ID</td>
+                    <td th:text="${employee.id}"></td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td th:text="${employee.name}"></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td th:text="${employee.email}"></td>
+                </tr>
+                <tr>
+                    <td>Phone</td>
+                    <td th:text="${employee.phone}"></td>
+                </tr>
+                <tr>
+                    <td>Age</td>
+                    <td th:text="${employee.age}"></td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td th:text="${employee.gender}"></td>
+                </tr>
+                <tr>
+                    <td>Department</td>
+                    <td th:text="${employee.department}"></td>
+                </tr>
+                <tr>
+                    <td>Salary</td>
+                    <td th:text="${employee.salary}"></td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td th:text="${employee.address}"></td>
+                </tr>
+                <tr>
+                    <td>PF</td>
+                    <td th:text="${employee.pf}"></td>
+                </tr>
+                <tr>
+                    <td>HRA</td>
+                    <td th:text="${employee.hra}"></td>
+                </tr>
+                <tr>
+                    <td>DA</td>
+                    <td th:text="${employee.da}"></td>
+                </tr>
+                <tr>
+                    <td>SA</td>
+                    <td th:text="${employee.sa}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- No Employee Found Section -->
+    <section th:if="${employee == null}" class="no-employee">
+        <p>No employee found with the given ID.</p>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 My Employee Management System | All Rights Reserved | <a th:href="@{/contactus}">Contact Us</a></p>
+    </footer>
+</body>
+</html>

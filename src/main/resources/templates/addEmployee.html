@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Employee</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <a th:href="@{/homepage}" class="active">Home</a>
+        <a th:href="@{/aboutus}">About</a>
+        <a th:href="@{/contactus}">Contact</a>
+        <a th:href="@{/getallemployees}">Employee List</a>
+        <a th:href="@{/searchform}">Search Employee</a>
+    </nav>
+
+    <!-- Form Section -->
+    <h1 class="form-header">Add Employee</h1>
+    <form th:action="@{/savedEmployee}" th:method="post" th:object="${employeeModel}">
+        <!-- Employee Name -->
+        <div class="form-group">
+            <label for="name">Employee Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter employee name" th:value="*{name}">
+            <p class="error" th:if="${#fields.hasErrors('name')}" th:text="${#fields.errors('name')}"></p>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter email address" th:value="*{email}">
+            <p class="error" th:if="${#fields.hasErrors('email')}" th:text="${#fields.errors('email')}"></p>
+        </div>
+
+        <!-- Phone -->
+        <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="number" id="phone" name="phone" placeholder="Enter phone number" th:value="*{phone}">
+            <p class="error" th:if="${#fields.hasErrors('phone')}" th:text="${#fields.errors('phone')}"></p>
+        </div>
+
+        <!-- Age and Gender (Inline Form Group) -->
+        <div class="form-group-inline">
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" placeholder="Enter age" th:value="*{age}">
+                <p class="error" th:if="${#fields.hasErrors('age')}" th:text="${#fields.errors('age')}"></p>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" th:value="*{gender}">
+                    <option value="" disabled selected>Select gender</option>
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                    <option value="O">Other</option>
+                </select>
+                <p class="error" th:if="${#fields.hasErrors('gender')}" th:text="${#fields.errors('gender')}"></p>
+            </div>
+        </div>
+
+        <!-- Department -->
+        <div class="form-group">
+            <label for="department">Department</label>
+            <input type="text" id="department" name="department" placeholder="Enter department" th:value="*{department}">
+            <p class="error" th:if="${#fields.hasErrors('department')}" th:text="${#fields.errors('department')}"></p>
+        </div>
+
+        <!-- Salary -->
+        <div class="form-group">
+            <label for="salary">Salary</label>
+            <input type="number" id="salary" name="salary" placeholder="Enter salary" step="0.01" th:value="*{salary}">
+            <p class="error" th:if="${#fields.hasErrors('salary')}" th:text="${#fields.errors('salary')}"></p>
+        </div>
+
+        <!-- Address -->
+        <div class="form-group">
+            <label for="address">Address</label>
+            <textarea id="address" name="address" placeholder="Enter full address" rows="3" th:text="*{address}"></textarea>
+            <p class="error" th:if="${#fields.hasErrors('address')}" th:text="${#fields.errors('address')}"></p>
+        </div>
+
+        <!-- Buttons -->
+        <div class="btn-container">
+            <button type="submit" class="btn btn-submit">Submit</button>
+            <button type="reset" class="btn btn-reset">Reset</button>
+        </div>
+    </form>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Your Company. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

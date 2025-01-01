@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" th:href="@{/css/styles1.css}">
+	
+</head>
+<body>
+    <nav>
+        <a th:href="@{/homepage}" class="active">Home</a>
+        <a th:href="@{/contactus}">Contact</a>
+        <a th:href="@{/getallemployees}">Employee List</a>
+    </nav>
+
+    <div class="welcome-container">
+        <h1 class="welcome-message">About Us</h1>
+        <p class="page-description">
+            Our Employee Management System simplifies managing employee records and allows businesses to stay organized. We are committed to providing the best tools to ensure efficiency and productivity in the workplace.
+        </p>
+
+        <div class="about-text">
+            <h2>Our Mission</h2>
+            <p>
+                Our mission is to simplify employee management and empower organizations to track, manage, and optimize their workforce with ease. We strive to provide a seamless platform where businesses can efficiently handle employee data, monitor performance, and improve productivity.
+            </p>
+
+            <h2>What We Offer</h2>
+            <p>
+                The Employee Management System offers a wide range of features designed to help organizations manage their workforce effectively. From employee record management to performance tracking, our platform provides tools that enable HR teams to make informed decisions.
+            </p>
+            <ul>
+                <li><strong>Comprehensive Employee Database:</strong> Store and access detailed employee information.</li>
+                <li><strong>Employee Performance Tracking:</strong> Monitor performance and provide feedback.</li>
+                <li><strong>Search and Filter Employees:</strong> Easily search for employees based on multiple criteria.</li>
+                <li><strong>Data Security:</strong> We ensure your employee data is safe and protected at all times.</li>
+            </ul>
+
+            <h2>Our Values</h2>
+            <p>
+                We are committed to providing an intuitive, user-friendly interface that makes managing employee data easier than ever. Our system is built with the latest technology to ensure reliability, security, and performance.
+            </p>
+
+            <h2>Contact Us</h2>
+            <p>
+                If you have any questions or need support, feel free to reach out to us. We are here to help!
+            </p>
+        </div>
+    </div>
+	<footer>
+	        <p>&copy; 2024 My Employee Management System | All Rights Reserved | <a th:href="@{/contactus}">Contact Us</a></p>
+	    </footer>
+</body>
+
+</html>

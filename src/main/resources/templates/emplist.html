@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/styles2.css}">
+    <title>Employee List</title>
+</head>
+<body>
+    <div class="table-container">
+        <nav>
+            <a th:href="@{/homepage}" class="active">Home</a>
+            <a th:href="@{/aboutus}">About</a>
+            <a th:href="@{/contactus}">Contact</a>
+			<a th:href="@{/employeeform}">Add Employee</a>
+        </nav>
+        <h1 class="table-header">Employee List</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Department</th>
+                    <th>Salary</th>
+                    <th>Address</th>
+                    <th>PF</th>
+                    <th>HRA</th>
+                    <th>DA</th>
+                    <th>SA</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="employee : ${employees}">
+                    <td th:text="${employee.id}"></td>
+                    <td th:text="${employee.name}"></td>
+                    <td th:text="${employee.email}"></td>
+                    <td th:text="${employee.phone}"></td>
+                    <td th:text="${employee.age}"></td>
+                    <td th:text="${employee.gender}"></td>
+                    <td th:text="${employee.department}"></td>
+                    <td th:text="${employee.salary}"></td>
+                    <td th:text="${employee.address}"></td>
+                    <td th:text="${employee.pf}"></td>
+                    <td th:text="${employee.hra}"></td>
+                    <td th:text="${employee.da}"></td>
+                    <td th:text="${employee.sa}"></td>
+                    <td>
+                        <div class="action-buttons">
+                            
+							<!--edit the employee by id with @PathVariable-->
+							<a th:href="@{'/edit/'+${employee.id}}" class="btn btn-edit">Edit</a>
+							<!--delete the employee by id with @RequestParam-->
+							<a th:href="@{'/delete?id='+${employee.id}}" class="btn btn-delete">Delete</a>
+
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <footer>
+        <p>&copy; 2024 Employee Management System | All Rights Reserved | <a th:href="@{/contactus}">Contact Us</a></p>
+    </footer>
+</body>
+</html>

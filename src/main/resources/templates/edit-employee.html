@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Employee</title>
+    <link rel="stylesheet" th:href="@{/css/edit.css}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <a th:href="@{/homepage}">Home</a>
+        <a th:href="@{/getallemployees}" class="active">Employees List</a>
+    </nav>
+
+    <!-- Welcome Container -->
+    <div class="welcome-container">
+        <h1 class="welcome-message">Edit Employee</h1>
+        <p class="welcome-description">Update the employee details below and save your changes.</p>
+
+        <!-- Form to submit updated employee details -->
+        <div class="form-container">
+            <form th:action="@{/updateemployee}" th:object="${employee}" method="post">
+                <!-- Hidden input for the employee ID -->
+                <input type="hidden" name="id" th:value="${employee.id}" />
+
+                <!-- Employee Name -->
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" th:value="${employee.name}" required />
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" th:value="${employee.email}" required />
+                </div>
+
+                <!-- Phone -->
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="text" id="phone" name="phone" th:value="${employee.phone}" required />
+                </div>
+
+                <!-- Age -->
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" th:value="${employee.age}" required />
+                </div>
+
+                <!-- Gender -->
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <select id="gender" name="gender">
+                        <option th:selected="${employee.gender == 'Male'}" value="Male">Male</option>
+                        <option th:selected="${employee.gender == 'Female'}" value="Female">Female</option>
+                        <option th:selected="${employee.gender == 'Other'}" value="Other">Other</option>
+                    </select>
+                </div>
+
+                <!-- Department -->
+                <div class="form-group">
+                    <label for="department">Department:</label>
+                    <input type="text" id="department" name="department" th:value="${employee.department}" required />
+                </div>
+
+                <!-- Salary -->
+                <div class="form-group">
+                    <label for="salary">Salary:</label>
+                    <input type="number" id="salary" name="salary" th:value="${employee.salary}" required />
+                </div>
+
+                <!-- Address -->
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <textarea id="address" name="address" required th:text="${employee.address}"></textarea>
+                </div>
+
+                <!-- Buttons -->
+                <div class="btn-container">
+                    <button type="submit" class="btn">Update Employee</button>
+                    <a th:href="@{/getallemployees}" class="btn btn-reset">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Employee Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>
