@@ -93,13 +93,13 @@ employee-management-system/
 ## 📸 Screenshots
 
 ### Home Page
-![Home Page](screenshots/home-page.png)
+![Home Page](./screentshots/add-employee.png)
 
 ### Employee List
-![Employee List](screenshots/employee-list.png)
+![Employee List](screentshots/employee-list.png)
 
 ### Add Employee
-![Add Employee](screenshots/add-employee.png)
+![Add Employee](screentshots/add-employee.png)
 
 ---
 
