@@ -1,6 +1,3 @@
-Here's a comprehensive `README.md` file template for your Employee Management System project:
-
-```markdown
 # Employee Management System
 
 Welcome to the **Employee Management System**! This is a web-based application developed using **Spring Boot MVC** to simplify employee data management. It provides user-friendly features for managing employee records, searching employees, and organizing them into departments.
