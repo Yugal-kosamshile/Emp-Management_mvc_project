@@ -5,91 +5,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Employee</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        .navbar {
+            background-color: #007bff !important;
+            padding: 1rem;
+            transition: background 0.3s ease;
+        }
+        .navbar a {
+            color: #fff !important;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .navbar a:hover {
+            color: rgb(0, 0, 128) !important;
+            text-decoration: none;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-light">
     <!-- Navigation Bar -->
-    <nav>
-        <a th:href="@{/homepage}" class="active">Home</a>
-        <a th:href="@{/aboutus}">About</a>
-        <a th:href="@{/contactus}">Contact</a>
-        <a th:href="@{/getallemployees}">Employee List</a>
-        <a th:href="@{/searchform}">Search Employee</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" th:href="@{/homepage}">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/aboutus}">About</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/contactus}">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/getallemployees}">Employee List</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/searchform}">Search Employee</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
     <!-- Form Section -->
-    <h1 class="form-header">Add Employee</h1>
-    <form th:action="@{/savedEmployee}" th:method="post" th:object="${employeeModel}">
-        <!-- Employee Name -->
-        <div class="form-group">
-            <label for="name">Employee Name</label>
-            <input type="text" id="name" name="name" placeholder="Enter employee name" th:value="*{name}">
-            <p class="error" th:if="${#fields.hasErrors('name')}" th:text="${#fields.errors('name')}"></p>
-        </div>
-
-        <!-- Email -->
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Enter email address" th:value="*{email}">
-            <p class="error" th:if="${#fields.hasErrors('email')}" th:text="${#fields.errors('email')}"></p>
-        </div>
-
-        <!-- Phone -->
-        <div class="form-group">
-            <label for="phone">Phone</label>
-            <input type="number" id="phone" name="phone" placeholder="Enter phone number" th:value="*{phone}">
-            <p class="error" th:if="${#fields.hasErrors('phone')}" th:text="${#fields.errors('phone')}"></p>
-        </div>
-
-        <!-- Age and Gender (Inline Form Group) -->
-        <div class="form-group-inline">
-            <div class="form-group">
-                <label for="age">Age</label>
-                <input type="number" id="age" name="age" placeholder="Enter age" th:value="*{age}">
-                <p class="error" th:if="${#fields.hasErrors('age')}" th:text="${#fields.errors('age')}"></p>
+    <div class="container mt-5">
+        <h1 class="text-center text-primary">Add Employee</h1>
+        <form th:action="@{/savedEmployee}" th:method="post" th:object="${employeeModel}" class="bg-white p-4 rounded shadow-sm">
+            <div class="mb-3">
+                <label for="name" class="form-label">Employee Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter employee name" th:value="*{name}">
+                <p class="text-danger" th:if="${#fields.hasErrors('name')}" th:text="${#fields.errors('name')}"></p>
             </div>
-            <div class="form-group">
-                <label for="gender">Gender</label>
-                <select id="gender" name="gender" th:value="*{gender}">
-                    <option value="" disabled selected>Select gender</option>
-                    <option value="M">Male</option>
-                    <option value="F">Female</option>
-                    <option value="O">Other</option>
-                </select>
-                <p class="error" th:if="${#fields.hasErrors('gender')}" th:text="${#fields.errors('gender')}"></p>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address" th:value="*{email}">
+                <p class="text-danger" th:if="${#fields.hasErrors('email')}" th:text="${#fields.errors('email')}"></p>
             </div>
-        </div>
 
-        <!-- Department -->
-        <div class="form-group">
-            <label for="department">Department</label>
-            <input type="text" id="department" name="department" placeholder="Enter department" th:value="*{department}">
-            <p class="error" th:if="${#fields.hasErrors('department')}" th:text="${#fields.errors('department')}"></p>
-        </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="number" class="form-control" id="phone" name="phone" placeholder="Enter phone number" th:value="*{phone}">
+                <p class="text-danger" th:if="${#fields.hasErrors('phone')}" th:text="${#fields.errors('phone')}"></p>
+            </div>
 
-        <!-- Salary -->
-        <div class="form-group">
-            <label for="salary">Salary</label>
-            <input type="number" id="salary" name="salary" placeholder="Enter salary" step="0.01" th:value="*{salary}">
-            <p class="error" th:if="${#fields.hasErrors('salary')}" th:text="${#fields.errors('salary')}"></p>
-        </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="age" class="form-label">Age</label>
+                    <input type="number" class="form-control" id="age" name="age" placeholder="Enter age" th:value="*{age}">
+                    <p class="text-danger" th:if="${#fields.hasErrors('age')}" th:text="${#fields.errors('age')}"></p>
+                </div>
+                <div class="col-md-6">
+                    <label for="gender" class="form-label">Gender</label>
+                    <select class="form-select" id="gender" name="gender" th:value="*{gender}">
+                        <option value="" disabled selected>Select gender</option>
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                        <option value="O">Other</option>
+                    </select>
+                    <p class="text-danger" th:if="${#fields.hasErrors('gender')}" th:text="${#fields.errors('gender')}"></p>
+                </div>
+            </div>
 
-        <!-- Address -->
-        <div class="form-group">
-            <label for="address">Address</label>
-            <textarea id="address" name="address" placeholder="Enter full address" rows="3" th:text="*{address}"></textarea>
-            <p class="error" th:if="${#fields.hasErrors('address')}" th:text="${#fields.errors('address')}"></p>
-        </div>
+            <div class="mb-3">
+                <label for="department" class="form-label">Department</label>
+                <input type="text" class="form-control" id="department" name="department" placeholder="Enter department" th:value="*{department}">
+                <p class="text-danger" th:if="${#fields.hasErrors('department')}" th:text="${#fields.errors('department')}"></p>
+            </div>
 
-        <!-- Buttons -->
-        <div class="btn-container">
-            <button type="submit" class="btn btn-submit">Submit</button>
-            <button type="reset" class="btn btn-reset">Reset</button>
-        </div>
-    </form>
+            <div class="mb-3">
+                <label for="salary" class="form-label">Salary</label>
+                <input type="number" class="form-control" id="salary" name="salary" placeholder="Enter salary" step="0.01" th:value="*{salary}">
+                <p class="text-danger" th:if="${#fields.hasErrors('salary')}" th:text="${#fields.errors('salary')}"></p>
+            </div>
+
+            <div class="mb-3">
+                <label for="address" class="form-label">Address</label>
+                <textarea class="form-control" id="address" name="address" placeholder="Enter full address" rows="3" th:text="*{address}"></textarea>
+                <p class="text-danger" th:if="${#fields.hasErrors('address')}" th:text="${#fields.errors('address')}"></p>
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+        </form>
+    </div>
 
     <!-- Footer -->
-    <footer>
+    <footer class="text-center bg-dark text-white py-3 mt-5">
         <p>&copy; 2024 Your Company. All Rights Reserved.</p>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

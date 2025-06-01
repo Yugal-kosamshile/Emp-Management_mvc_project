@@ -1,40 +1,97 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
-    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            font-family: 'Poppins', sans-serif;
+        }
+        .navbar {
+            background-color: #007bff !important;
+            padding: 1rem;
+            transition: background 0.3s ease;
+        }
+        .navbar a {
+            color: #fff !important;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .navbar a:hover {
+            color: rgb(0, 0, 128) !important;
+			text-decoration: none;
+        }
+        .container {
+            max-width: 800px;
+        }
+        .btn {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 1rem;
+        }
+        footer a {
+            color: #ffc107;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: white;
+        }
+    </style>
 </head>
 <body>
-    <nav>
-        <a th:href="@{/homepage}" class="active">Home</a>
-        <a th:href="@{/aboutus}">About</a>
-        <a th:href="@{/contactus}">Contact</a>
-        <a th:href="@{/getallemployees}">Employee List</a>
-        <a th:href="@{/searchform}">Search Employee</a>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/homepage}">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/aboutus}">About</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/contactus}">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/getallemployees}">Employee List</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/searchform}">Search Employee</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
-    <div class="welcome-container">
+
+    <div class="container mt-5 text-center">
         <h1 class="welcome-message">Welcome to My Employee Management System</h1>
         <p class="welcome-description">
-            Welcome to the Employee Management System! This platform empowers you to manage employee data effortlessly and effectively. 
-			Designed with user-friendliness in mind, it provides a comprehensive suite of tools to streamline all aspects of employee management. 
-			Whether you're a manager or an HR professional, this system simplifies tasks like viewing, searching, and updating employee details. 
-			From maintaining accurate records to enhancing workforce productivity, our platform ensures seamless data handling. 
-			With a focus on efficiency and precision, it’s your ultimate solution for managing employee information in a modern workplace.</p>
-        <div class="product-info">
+            This platform empowers you to manage employee data effortlessly and effectively. 
+            Designed with user-friendliness in mind, it provides a comprehensive suite of tools to streamline all aspects of employee management.
+        </p>
+        <div class="product-info mt-4 p-3 bg-light rounded">
             <p>Our platform allows you to:</p>
-            <ul>
-                <li><strong>Manage Employee Records:</strong> Add, update, or delete employee information.</li>
-                <li><strong>Search Employees:</strong> Find employees by name, department, or role.</li>
-                <li><strong>Department Management:</strong> Organize employees into departments for better structure.</li>
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Manage Employee Records:</strong> Add, update, or delete employee information.</li>
+                <li class="list-group-item"><strong>Search Employees:</strong> Find employees by name, department, or role.</li>
+                <li class="list-group-item"><strong>Department Management:</strong> Organize employees into departments for better structure.</li>
             </ul>
-            <p>Our mission is to streamline employee management, ensuring a smooth workflow and fostering organizational success. Experience the ease of modern employee data management with our system.</p>
+            <p class="mt-3">Experience the ease of modern employee data management with our system.</p>
         </div>
-        <div class="btn-container">
-            <a th:href="@{/employeeform}" class="btn">Add Employee</a>
+        <div class="btn-container mt-4">
+            <a th:href="@{/employeeform}" class="btn btn-primary">Add Employee</a>
         </div>
     </div>
-    <footer>
+    
+    <footer class="text-center py-3 mt-5">
         <p>&copy; 2024 My Employee Management System | All Rights Reserved | <a th:href="@{/contactus}">Contact Us</a></p>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
