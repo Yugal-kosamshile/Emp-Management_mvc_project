@@ -1,4 +1,7 @@
+<<<<<<< HEAD
  
+=======
+>>>>>>> a440303ea0a72281fd9389d21765767a5117b4ff
 # Employee Management System
 
 Welcome to the **Employee Management System**! This is a web-based application developed using **Spring Boot MVC** to simplify employee data management. It provides user-friendly features for managing employee records, searching employees, and organizing them into departments.
@@ -38,7 +41,11 @@ Follow these steps to set up and run the project locally:
 ### Steps
 1. Clone the repository:
    ```bash
+<<<<<<< HEAD
    git clone https://github.com/Yugal-kosamshile/Emp-Management_mvc_project.git 
+=======
+   git clone https://github.com/your-username/employee-management-system.git
+>>>>>>> a440303ea0a72281fd9389d21765767a5117b4ff
    ```
 2. Navigate to the project directory:
    ```bash
@@ -54,7 +61,11 @@ Follow these steps to set up and run the project locally:
    ```
 5. Access the application in your browser at:
    ```
+<<<<<<< HEAD
    http://localhost:8080
+=======
+   http://localhost:8082
+>>>>>>> a440303ea0a72281fd9389d21765767a5117b4ff
    ```
 
 ---
@@ -91,6 +102,7 @@ employee-management-system/
 ## 📸 Screenshots
 
 ### Home Page
+<<<<<<< HEAD
 ![Home Page](screenshots/home-page.png)
 
 ### Employee List
@@ -101,6 +113,19 @@ employee-management-system/
 
 ---
 
+=======
+![Home Page](./screentshots/add-employee.png)
+
+### Employee List
+![Employee List](screentshots/employee-list.png)
+
+### Add Employee
+![Add Employee](screentshots/add-employee.png)
+
+---
+
+
+>>>>>>> a440303ea0a72281fd9389d21765767a5117b4ff
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
